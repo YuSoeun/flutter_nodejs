@@ -16,6 +16,8 @@ app.post('/create-user', async(req, res, next)=>{
   res.json({status:"OK"});
   next();
 });
+
+// TODO: cannot get user lists.
 app.get('/users', async (req, res, next) => {
   // load all user lists from db
   const [rows] = await db.query("SELECT * FROM users;");
@@ -26,14 +28,18 @@ app.get('/users', async (req, res, next) => {
 
 // Asynchrony process
 async function main(){
-  db = await mysql.createConnection({
-    host:"localhost",
-    user: "root",
-    password: "",
-    database: "dbname",
-    timezone: "+00:00",
-    charset: "utf8mb4_general_ci",
-  });
+  try {
+    db = await mysql.createConnection({
+      host:"host",
+      user: "user",
+      password: "password",
+      database: "dbname",
+      timezone: "+00:00",
+      charset: "utf8mb4_general_ci",
+    });
+  } catch(e) {
+    console.log(e);
+  }
 
   app.listen(8000);
 }

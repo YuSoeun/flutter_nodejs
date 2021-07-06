@@ -21,22 +21,25 @@ class User
 
 class MainPageState extends State<MainPage>
 {
+  // users list에 띄우기
   List<User> users = [];
   Future<void> refreshUsers()async{
     var result = await http_get('users');
-    // add users
     if(result.ok)
     {
       setState(() {
         users.clear();
         var in_users = result.data as List<dynamic>;
+
         in_users.forEach((in_user){
           users.add(User(
             in_user['id'].toString(),
-            in_user['name']
+            in_user['name'],
           ));
         });
+        print(in_users);
       });
+
     }
   }
   

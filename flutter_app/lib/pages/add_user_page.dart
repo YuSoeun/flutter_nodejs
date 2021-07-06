@@ -26,7 +26,6 @@ class AddUserPageState extends State<AddUserPage>
       });
     }
   }
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

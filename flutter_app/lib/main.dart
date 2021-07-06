@@ -3,6 +3,7 @@ import 'package:flutter_app/pages/main_page.dart';
 
 class App extends StatelessWidget
 {
+  // show main page
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

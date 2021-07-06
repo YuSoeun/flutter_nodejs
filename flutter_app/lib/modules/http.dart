@@ -1,6 +1,10 @@
 import 'dart:convert';
 
 import "package:http/http.dart" as http;
+import "package:flutter_app/configuration/settings.dart" as settings; 
+
+const PROTOCOL = settings.PROTOCOL;
+const DOMAIN = settings.DOMAIN;
 
 class RequestResult
 {
@@ -9,8 +13,6 @@ class RequestResult
   RequestResult(this.ok, this.data);
 }
 
-const PROTOCOL = "http";
-const DOMAIN = "192.168.1.5:8000";
 
 Future<RequestResult> http_get(String route, [dynamic data]) async
 {
